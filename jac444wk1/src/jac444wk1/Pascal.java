@@ -10,6 +10,7 @@ public class Pascal {
 	 * Main
 	 * @param args
 	 */
+
 	public static void main(String[] args) {
         Scanner S = new Scanner(System.in);
         System.out.print("Input the number to create Pascal Triangle: ");
