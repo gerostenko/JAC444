@@ -3,10 +3,8 @@ package jac444.wk3;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,10 +44,10 @@ public class WeatherReporter {
 			}
 		}
 		catch (IOException ex) {
-			//do nothing
+			ex.printStackTrace();
 		}
 		catch (WeatherQueueFull ex) {
-			this.logger.log(Level.WARNING, ex.getMessage());
+			this.logger.log(Level.WARNING, ex.getMessage(), ex.getReading());
 		}
 	}
     public void printReadings() {

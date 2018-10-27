@@ -5,8 +5,7 @@ import java.util.Objects;
 public class WeatherReading {
 	public final double minTemperature = -40;
 	public final double maxTemperature = 40;
-	public final LocalDateTime currentTime = LocalDateTime.now();
-	private final double defaultValueForInvalidTemperature = 666;
+	public final double defaultValueForInvalidTemperature = 666;
 	private double temperature;
 	private String location;
 	private LocalDateTime time;
@@ -17,8 +16,8 @@ public class WeatherReading {
 		else
 			this.temperature = temperature;
 		this.location = location;
-		if (time.isAfter(this.currentTime))
-			this.time = this.currentTime;
+		if (time.isAfter(LocalDateTime.now()))
+			this.time = LocalDateTime.now();
 		else
 			this.time = time;
 	}
