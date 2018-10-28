@@ -22,6 +22,7 @@ public class WeatherNetworkApp {
 	private String masterOutput;
 	
 	/**
+	 * WeatherNetworkApp Constructor
 	 * @param queueSize
 	 * @param masterOutput
 	 */
@@ -31,18 +32,23 @@ public class WeatherNetworkApp {
 	}
 	
 	/**
-	 * 
+	 * runWeatherNetworkApp() reads WeatherReading from specified files (concurrently) and put them in WeatherQueue, 
+	 * set the loggers, output all the WeatherReadings to the file all.txt
 	 */
 	public void runWeatherNetworkApp() {
-		String inputFile1 = "/home/gerostenko/workspace/jac444.wk3/files/moscow.txt";
-		String inputFile2 = "/home/gerostenko/workspace/jac444.wk3/files/berlin.txt";
-		String inputFile3 = "/home/gerostenko/workspace/jac444.wk3/files/paris.txt";
+		//set the full paths to the files, add more files here if needed
+		String inputFile1 = "moscow.txt";
+		String inputFile2 = "berlin.txt";
+		String inputFile3 = "paris.txt";
+		//set logger level to Finest
 		this.logger.setLevel(Level.FINEST);
-		String loggerFile = "/home/gerostenko/workspace/jac444.wk3/files/logging.log";
+		String loggerFile = "logging.log";
+		//create WeatherReporters per file
 		this.reporter1 = new WeatherReporter(this.queue, inputFile1, this.logger, loggerFile);
 		this.reporter2 = new WeatherReporter(this.queue, inputFile2, this.logger, loggerFile);
 		this.reporter3 = new WeatherReporter(this.queue, inputFile3, this.logger, loggerFile);
 		
+		//concurrently create MyRunnables
 		//I've used ExecutorService here to do the multi-threading
 		//more about it here: https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ExecutorService.html
 		ExecutorService executor= Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
@@ -55,37 +61,39 @@ public class WeatherNetworkApp {
 		executor.shutdown(); 
 		try (PrintWriter writer = new PrintWriter(this.masterOutput, "UTF-8")) {
 			  executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+			  //output each WeatherReading to the all.txt
 			  for(int i = 0; i < 9; i++) {
 				  writer.println(queue.get().toString());
 			  }
 		} 
+		//catch all possible exceptions here
 		catch (Exception ex) {
 			  ex.printStackTrace();
 		}
 	}
 	
 	/**
-	 * @param args
+	 * Main, test here
 	 */
 	public static void main(String[] args) {
-		WeatherNetworkApp app = new WeatherNetworkApp(9, "/home/gerostenko/workspace/jac444.wk3/files/all.txt");
+		WeatherNetworkApp app = new WeatherNetworkApp(9, "all.txt");
 		app.runWeatherNetworkApp();
 	}
 }
 
 /**
- * @author gerostenko
- *
+ * MyRunnable defined to be able to run reportReadings() concurrently
  */
 class MyRunnable implements Runnable{
     public WeatherReporter reporter;
     /**
+     * MyRunnable Constructor
      * @param reporter
      */
     public MyRunnable(WeatherReporter reporter){
         this.reporter = reporter;
     }
-    /* (non-Javadoc)
+    /* implement run(), which invokes reportReadings()
      * @see java.lang.Runnable#run()
      */
     public void run(){
