@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jac444.wk4.StudentController">
+   <children>
+      <Label layoutX="227.0" layoutY="22.0" prefHeight="17.0" prefWidth="247.0" text="Student Application">
+		 <font>
+            <Font name="Baskerville Old Face" size="28.0" />
+         </font>
+	  </Label>
+      <Label layoutX="18.0" layoutY="78.0" text="Name">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Label>
+      <Label layoutX="269.0" layoutY="80.0" text="Course">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Label>
+      <Label layoutX="544.0" layoutY="80.0" text="Grade">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Label>
+      <Label layoutX="340.0" layoutY="142.0" text="File">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Label>
+      <TextField fx:id="name" editable="false" layoutX="58.0" layoutY="75.0" prefHeight="28.0" prefWidth="195.0">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></TextField>
+      <TextField fx:id="course" editable="false" layoutX="321.0" layoutY="75.0">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></TextField>
+      <TextField fx:id="grade" editable="false" layoutX="590.0" layoutY="77.0" prefHeight="25.0" prefWidth="59.0">
+         <font>
+            <Font name="Baskerville Old Face" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="file" layoutX="367.0" layoutY="138.0" prefHeight="25.0" prefWidth="206.0">
+         <font>
+            <Font name="Baskerville Old Face" size="12.0" />
+         </font></TextField>
+      <Button fx:id="NewButton" layoutX="35.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleNew" text="New">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Button>
+      <Button fx:id="EditButton" disable="true" layoutX="130.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Button>
+      <Button fx:id="DeleteButton" disable="true" layoutX="220.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleDelete" text="Delete">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Button>
+      <Button fx:id="SaveButton" disable="true" layoutX="421.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleSave" text="Save">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Button>
+      <Button fx:id="LoadButton" layoutX="512.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleLoad" text="Load">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Button>
+      <Label layoutX="51.0" layoutY="255.0" text="Audit:">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Label>
+      <Label fx:id="actiontarget" layoutX="101.0" layoutY="252.0" prefHeight="25.0" prefWidth="478.0" text="">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Label>
+   </children>
+</AnchorPane>
