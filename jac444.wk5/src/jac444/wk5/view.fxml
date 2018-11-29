@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jac444.wk5.StudentController">
+   <children>
+      <Label layoutX="227.0" layoutY="22.0" prefHeight="17.0" prefWidth="247.0" text="Student Application">
+		 <font>
+            <Font name="Baskerville Old Face" size="28.0" />
+         </font>
+	  </Label>
+	       <Button fx:id="FileOpenerButton" disable="false" layoutX="82.0" layoutY="70.0" mnemonicParsing="false" onAction="#fileOpen" text="Open File">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font></Button>
+      <Label fx:id="actiontarget" layoutX="216.0" layoutY="75.0" prefHeight="18.0" prefWidth="317.0" text="">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+ 		</font>
+      </Label>
+      
+      <Label fx:id="notes" layoutX="14.0" layoutY="156.0" prefHeight="18.0" prefWidth="171.0" text="">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+ 		</font>
+      </Label>
+      <Button fx:id="NewButton" disable="true" layoutX="207.0" layoutY="152.0" onAction="#AddNewStudent" text="New" />
+      <Button fx:id="DeleteButton" disable="true" layoutX="294.0" layoutY="152.0" onAction="#DeleteStudent" text="Delete" />
+      <Button fx:id="EditButton" disable="true" layoutX="384.0" layoutY="152.0" onAction="#EditStudent" text="Edit" />
+      <Button fx:id="SaveButton" disable="true" layoutX="474.0" layoutY="152.0" onAction="#SaveStudents" text="Save" />
+      
+       <TableView id="tableView1" fx:id="table" layoutY="208.0" prefHeight="292.0" prefWidth="670.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="208.0">
+                 <columns>
+                       <TableColumn fx:id="colId" maxWidth="750.0" minWidth="75.0" prefWidth="99.0" text="Id" />
+                       <TableColumn fx:id="colName" maxWidth="750.0" minWidth="50.0" prefWidth="193.0" text="Name" />
+                       <TableColumn fx:id="colCourse" maxWidth="4430.0" minWidth="2.0" prefWidth="226.0" text="Course" />
+                       <TableColumn fx:id="colGrade" maxWidth="4430.0" minWidth="0.0" prefWidth="151.0" text="Grade" />
+                 </columns>
+       </TableView>
+      
+   </children>
+</AnchorPane>
